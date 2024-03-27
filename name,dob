@@ -1,0 +1,17 @@
+:- dynamic(name_dob/2).
+
+% Facts
+name_dob(john, '1990-05-15').
+name_dob(sarah, '1985-10-20').
+name_dob(michael, '1978-03-12').
+name_dob(lisa, '1995-08-30').
+
+% Query to retrieve Date of Birth (DOB) based on Name
+get_dob(Name, DOB) :-
+    name_dob(Name, DOB), !.
+
+get_dob(Name, 'Unknown') :-
+    \+ name_dob(Name, _).
+
+% Example query:
+% get_dob(john, DOB). % This will retrieve the DOB for John
